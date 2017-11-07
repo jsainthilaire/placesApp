@@ -14,7 +14,18 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(path.SRC, 'index.html'),
+      template: path.join(paths.SRC, 'index.html'),
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: [
+          'babel-loader',
+        ],
+      },
+    ],
+  },
 }
