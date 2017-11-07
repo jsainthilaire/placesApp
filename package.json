@@ -1,0 +1,8 @@
+{
+  "name": "placesApp",
+  "version": "0.0.1",
+  "description": "Manage and review your list of places to visit",
+  "main": "index.js",
+  "author": "Jose Saint Hilaire",
+  "license": "MIT"
+}
