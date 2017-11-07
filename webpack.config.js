@@ -7,6 +7,7 @@ const paths = {
 }
 
 module.exports = {
+  devtool: 'inline-cheap-module-source-map',
   entry: path.join(paths.SRC, 'index.jsx'),
   output: {
     path: paths.BUILD,
@@ -31,4 +32,8 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    modules: [path.resolve(__dirname, 'app'), 'node_modules'],
+  }
 }
