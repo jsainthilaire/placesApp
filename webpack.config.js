@@ -12,6 +12,9 @@ module.exports = {
     path: paths.BUILD,
     filename: 'app.bundle.js',
   },
+  devServer: {
+    contentBase: path.SRC,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(paths.SRC, 'index.html'),

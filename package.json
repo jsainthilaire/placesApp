@@ -6,7 +6,8 @@
   "author": "Jose Saint Hilaire",
   "license": "MIT",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack-dev-server"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
