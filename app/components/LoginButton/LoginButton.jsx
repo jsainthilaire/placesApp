@@ -14,14 +14,15 @@ const providers = {
   },
 }
 
-const LoginButton = ({ provider }) => (
-  <button className={providers[provider].className}>
+const LoginButton = ({ provider, onAuth }) => (
+  <button className={providers[provider].className} onClick={onAuth(provider)}>
     {providers[provider].text}
   </button>
 )
 
 LoginButton.propTypes = {
   provider: PropTypes.string.isRequired,
+  onAuth: PropTypes.func.isRequired,
 }
 
 export default LoginButton
