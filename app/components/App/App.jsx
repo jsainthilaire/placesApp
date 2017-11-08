@@ -1,8 +1,10 @@
 import React from 'react'
-import { Main } from 'components'
+import { Main, Header } from 'components'
+import './styles.css'
 
 const App = () => (
   <div>
+    <Header isAuthed={false} />
     <Main />
   </div>
 )

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { centeredContainer, title, description } from 'sharedStyles/styles.css'
 
 const Home = () => (
