@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Login } from 'components'
 import { authenticate } from 'helpers/auth'
+import { authUser } from 'redux/modules/auth'
 
 class LoginContainer extends Component {
   handleAuth = provider => () => {
-    authenticate(provider)
+    this.props.authUser(provider)
   }
 
   render() {
@@ -14,4 +16,10 @@ class LoginContainer extends Component {
   }
 }
 
-export default LoginContainer
+const mapDispatchToProps = dispatch => ({
+  authUser(provider) {
+    dispatch(authUser(provider))
+  },
+})
+
+export default connect(null, mapDispatchToProps)(LoginContainer)

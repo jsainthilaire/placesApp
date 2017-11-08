@@ -2,9 +2,9 @@ import React from 'react'
 import { Main, Header } from 'components'
 import './styles.css'
 
-const App = () => (
+const App = ({isAuthed}) => (
   <div>
-    <Header isAuthed={false} />
+    <Header isAuthed={isAuthed} />
     <Main />
   </div>
 )
