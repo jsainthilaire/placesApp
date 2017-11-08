@@ -1,6 +1,6 @@
 import { auth, facebookAuthProvider, googleAuthProvider } from 'config/firebase'
-const signedInStatus = 'SIGNED_IN'
 
+const signedInStatus = 'SIGNED_IN'
 
 export const authenticate = (provider = 'google') => {
   const providerInstance = provider !== 'google' ? facebookAuthProvider : googleAuthProvider
@@ -8,9 +8,7 @@ export const authenticate = (provider = 'google') => {
   return auth.signInWithPopup(providerInstance)
 }
 
-export const isAuthed = (status = '') => {
-  return status === signedInStatus
-}
+export const isAuthed = (status = '') => status === signedInStatus
 
 export const logout = () => {
   auth.signOut()

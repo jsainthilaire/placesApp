@@ -1,5 +1,4 @@
-export BaseContainer from './Base/BaseContainer'
 export HomeContainer from './Home/HomeContainer'
 export LoginContainer from './Login/LoginContainer'
-export AppContainer from './App/AppContainer'
 export LogoutContainer from './Logout/LogoutContainer'
+export MainContainer from './Main/MainContainer'

@@ -16,6 +16,7 @@ module.exports = {
   devServer: {
     contentBase: paths.SRC,
     historyApiFallback: true,
+    publicPath: '/build/',
   },
   plugins: [
     new HtmlWebpackPlugin({
