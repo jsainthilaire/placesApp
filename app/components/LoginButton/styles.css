@@ -1,0 +1,29 @@
+.button {
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    border-width: 0;
+    font-size: 25px;
+    margin: 5px;
+    padding: 15px;
+    width: 80%;
+}
+
+.google {
+    composes: button;
+    background: #dd5347;
+}
+
+.google:hover {
+    background: #a92014;
+}
+
+.facebook {
+    composes: button;
+    background: #4267b2;
+}
+
+.facebook:hover {
+    background: #365899;
+    border-color: #29487d;
+}

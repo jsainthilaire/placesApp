@@ -6,10 +6,10 @@ import { container, menuItems, btn, headerLogo, link } from './styles.css'
 
 const AuthMenuItem = ({ isAuthed }) => {
   if (isAuthed) {
-    return <li className={btn}><Link className={link} to='/'>Logout</Link></li>
+    return <li className={btn}><Link className={link} to='/logout'>Logout</Link></li>
   }
 
-  return <li className={btn}><Link className={link} to='/'>Login</Link></li>
+  return <li className={btn}><Link className={link} to='/login'>Login</Link></li>
 }
 
 AuthMenuItem.propTypes = {
