@@ -1,0 +1,19 @@
+.centeredContainer {
+    align-items: center;
+    color: #8D6E63;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    font-weight: 200;
+    font-size: 100px;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 35px;
+    line-height: 55px;
+    text-align: center;
+}
