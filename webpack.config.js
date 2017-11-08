@@ -30,6 +30,22 @@ module.exports = {
           'babel-loader',
         ],
       },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: true,
+              localIdentName: '[name]__[local]--[hash:base64:5]',
+            },
+          },
+        ],
+      }
     ],
   },
   resolve: {

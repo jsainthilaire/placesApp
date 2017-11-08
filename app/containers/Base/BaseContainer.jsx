@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import { container } from './styles.css'
 
 class BaseContainer extends Component {
   render() {
     return (
-      <div>Base Container</div>
+      <div className={container}>Base Container</div>
     )
   }
 }
