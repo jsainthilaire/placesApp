@@ -12,11 +12,11 @@ module.exports = {
   output: {
     path: paths.BUILD,
     filename: 'app.bundle.js',
+    publicPath: '/',
   },
   devServer: {
     contentBase: paths.SRC,
     historyApiFallback: true,
-    publicPath: '/build/',
   },
   plugins: [
     new HtmlWebpackPlugin({

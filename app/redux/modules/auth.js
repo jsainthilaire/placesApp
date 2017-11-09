@@ -1,4 +1,5 @@
 import { authenticate, logout } from 'helpers/auth'
+import { saveUser } from 'helpers/firebase'
 
 const SIGN_IN = 'SIGN_IN'
 const SIGN_OUT = 'SIGN_OUT'
@@ -17,6 +18,7 @@ export const signedIn = (user) => {
 
 const signingError = (error) => {
   return {
+    type: SIGNING_ERROR,
     error,
   }
 }
@@ -37,7 +39,12 @@ export const authUser = (provider) => {
   return (dispatch) => {
     dispatch(attemptingLogin())
     authenticate(provider)
-      .then(({user}) => dispatch(signedIn(user)))
+      .then(({user}) => {
+        const userData = user.providerData[0]
+        dispatch(signedIn(userData))
+        return userData
+      })
+      .then((user) => saveUser(user))
       .catch(error => dispatch(signingError(error)))
   }
 }
