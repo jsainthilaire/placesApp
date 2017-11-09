@@ -40,7 +40,7 @@ export const authUser = (provider) => {
     dispatch(attemptingLogin())
     authenticate(provider)
       .then(({user}) => {
-        const userData = user.providerData[0]
+        const userData = { ...user.providerData[0], uid: user.uid }
         dispatch(signedIn(userData))
         return userData
       })

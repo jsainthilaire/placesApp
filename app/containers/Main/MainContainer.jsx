@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Main } from 'components'
 import { signedIn, signOut, attemptingLogin } from 'redux/modules/auth'
+import { fetchUser } from 'redux/modules/users'
 import { auth as firebaseAuth } from 'config/firebase'
 import { isAuthed } from 'helpers/auth'
 
@@ -12,6 +13,7 @@ class MainContainer extends Component {
     firebaseAuth.onAuthStateChanged((user) => {
       if (user) {
         this.props.signedIn(user)
+        this.props.fetchUser(user.uid)
       } else {
         this.props.signOut()
       }
@@ -39,6 +41,9 @@ const mapDispatchToProps = dispatch => ({
   signOut() {
     dispatch(signOut())
   },
+  fetchUser(uid) {
+    dispatch(fetchUser(uid))
+  },
 })
 
 MainContainer.propTypes = {
@@ -46,6 +51,7 @@ MainContainer.propTypes = {
   signedIn: PropTypes.func.isRequired,
   attemptingLogin: PropTypes.func.isRequired,
   signOut: PropTypes.func.isRequired,
+  fetchUser: PropTypes.func.isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer)

@@ -39,3 +39,28 @@ export const savePlace = (uid, place) => {
     updateAt: serverTimestamp(),
   }))
 }
+
+export const snapshotToObject = (snapshot) => {
+  const returnObj = {}
+
+  snapshot.forEach((doc) => {
+    returnObj[doc.id] = doc.data()
+  })
+
+  return returnObj
+}
+
+export const getPlaces = () => {
+  return db.collection('places').get().then(querySnapshot => snapshotToObject(querySnapshot))
+}
+
+export const getUser = (uid) => {
+  console.log(uid)
+  return db.collection('users').doc(uid).get().then((doc) => {
+    if (doc.exists) {
+      return doc.data()
+    } else {
+      console.log("No such document!")
+    }
+  })
+}
