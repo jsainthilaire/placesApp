@@ -2,20 +2,30 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { HomeContainer, LoginContainer, LogoutContainer, PlacesContainer } from 'containers'
 import { FourOhFour, Header } from 'components'
-import { mainContainer } from './styles.css'
+import { mainContainer, contentContainer, sidebarContainer } from './styles.css'
 
 const Main = ({ isAuthed }) => (
   <div>
     <Header isAuthed={isAuthed} />
-    <main className={mainContainer}>
-      <Switch>
-        <Route exact path='/' component={HomeContainer} />
-        <Route exact path='/login' component={LoginContainer} />
-        <Route exact path='/logout' component={LogoutContainer} />
-        <Route exact path='/places' component={PlacesContainer} />
-        <Route component={FourOhFour} />
-      </Switch>
-    </main>
+    <div className={contentContainer}>
+      <aside className={sidebarContainer}>
+        <h4>user info</h4>
+        <p>Here we will display user info</p>
+      </aside>
+      <main className={mainContainer}>
+        <Switch>
+          <Route exact path='/' component={HomeContainer} />
+          <Route exact path='/login' component={LoginContainer} />
+          <Route exact path='/logout' component={LogoutContainer} />
+          <Route exact path='/places' component={PlacesContainer} />
+          <Route component={FourOhFour} />
+        </Switch>
+      </main>
+      <aside className={sidebarContainer}>
+        <h4>Notifications</h4>
+        <p>Here we will display a few info</p>
+      </aside>
+    </div>
   </div>
 )
 

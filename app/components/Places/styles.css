@@ -1,5 +1,19 @@
 .container {
     color: #8D6E63;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+
+.placesList {
+    display: flex;
+    flex-direction: column;
+}
+
+.division {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #8D6E63;
+    margin: 30px 0;
+    padding: 0;
 }

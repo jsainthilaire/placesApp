@@ -14,8 +14,8 @@ export const saveUser = (user) => {
     .then(() => user)
 }
 
-const saveImage = (uid, image) => {
-  const storageRef = storage.ref('/places').child(uid)
+const saveImage = (uid, placeId, image) => {
+  const storageRef = storage.ref('/places').child(`${uid}/${placeId}`)
   const upload = storageRef.child(image.name)
     .put(image, { contentType: image.type })
 
@@ -28,7 +28,9 @@ const saveImage = (uid, image) => {
 
 export const savePlace = (uid, place) => {
   const { name, description, image } = place
-  const upload = saveImage(uid, image)
+  const placeRef = db.collection('places').doc()
+  const placeId = placeRef.id
+  const upload = saveImage(uid, placeId, image)
 
   return upload.then(snapshot => db.collection('places').add({
     name,

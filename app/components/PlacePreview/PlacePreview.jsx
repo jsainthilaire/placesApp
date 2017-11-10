@@ -1,11 +1,12 @@
 import React from 'react'
+import { placeImage, container } from './stytles.css'
 
-const PlacePreview = () => {
+const PlacePreview = ({name, description, imageURL}) => {
   return (
-    <article>
-      <h2></h2>
-      <p></p>
-      <img />
+    <article className={container}>
+      <h2>{name}</h2>
+      <p>{description}</p>
+      <img src={imageURL} className={placeImage} />
     </article>
   )
 }

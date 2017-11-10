@@ -1,3 +1,14 @@
+.contentContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
 .mainContainer {
     margin-top: 10px;
+}
+
+.sidebarContainer {
+    border: 1px solid #EFEBE9;
+    min-height: 100vh;
+    padding: 20px;
 }

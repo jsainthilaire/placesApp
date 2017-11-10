@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import omit from 'lodash/omit'
 import { Places } from 'components'
 import { fetchPlaces } from 'redux/modules/places'
 
@@ -10,10 +11,15 @@ class PlacesContainer extends Component {
 
   render() {
     return (
-      <Places />
+      <Places places={this.props.places} />
     )
   }
 }
+
+const mapStateToProps = ({ places }) => ({
+  places: omit(places, ['isFetching', 'newPlace']),
+})
+
 
 const mapDispatchToProp = dispatch => ({
   fetchPlaces() {
@@ -21,4 +27,4 @@ const mapDispatchToProp = dispatch => ({
   },
 })
 
-export default connect(null, mapDispatchToProp)(PlacesContainer)
+export default connect(mapStateToProps, mapDispatchToProp)(PlacesContainer)
