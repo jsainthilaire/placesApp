@@ -59,5 +59,5 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [path.resolve(__dirname, 'app'), 'node_modules'],
-  }
+  },
 }

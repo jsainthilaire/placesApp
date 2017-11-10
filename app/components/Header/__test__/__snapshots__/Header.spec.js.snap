@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<header
+  className="container"
+>
+  <Link
+    className="headerLogo"
+    replace={false}
+    to="/"
+  >
+    <img
+      alt="logo"
+      src="logo.png"
+    />
+  </Link>
+  <nav>
+    <ul
+      className="menuItems"
+    >
+      <AuthMenuItem
+        isAuthed={false}
+      />
+    </ul>
+  </nav>
+</header>
+`;
