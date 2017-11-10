@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const DotenvPlugin = require('webpack-dotenv-plugin')
 
 const paths = {
   BUILD: path.resolve(__dirname, 'build'),
@@ -21,6 +22,10 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(paths.SRC, 'index.html'),
+    }),
+    new DotenvPlugin({
+      sample: '.env.firebase.sample',
+      path: '.env.firebase',
     }),
   ],
   module: {

@@ -1,13 +1,22 @@
 import firebase from 'firebase'
 import 'firebase/firestore'
 
+const {
+  API_KEY,
+  AUTH_DOMAIN,
+  DATABASE_URL,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+  MESSAGING_SENDER_ID,
+} = process.env
+
 const config = {
-  apiKey: 'AIzaSyDw6OHOK9vu9uiaQv6X_vkEItJZRSFKWn0',
-  authDomain: 'placesapp-b9bd7.firebaseapp.com',
-  databaseURL: 'https://placesapp-b9bd7.firebaseio.com',
-  projectId: 'placesapp-b9bd7',
-  storageBucket: 'placesapp-b9bd7.appspot.com',
-  messagingSenderId: '323590886517',
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  databaseURL: DATABASE_URL,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGING_SENDER_ID,
 }
 
 firebase.initializeApp(config)
