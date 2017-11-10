@@ -1,0 +1,24 @@
+.loadingContainer {
+    height: 100px;
+    width: 100px;
+    z-index: 200;
+}
+
+.loading {
+    animation: load 2s linear infinite;
+    border: 10px solid #EFEBE9;
+    border-top-color: #8D6E63;
+    border-radius: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+}
+
+@keyframes load {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
