@@ -59,6 +59,7 @@ const initialStatePlace = {
   name: '',
   description: '',
   photoURL: '',
+  createdBy: '',
 }
 
 const initialStateNewPlace = {

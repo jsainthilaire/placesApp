@@ -1,4 +1,5 @@
-import { db, storage, serverTimestamp } from 'config/firebase'
+import { db, storage } from 'config/firebase'
+import { addExtendedDataToPlace } from './format'
 
 export const saveUser = (user) => {
   const {
@@ -27,19 +28,21 @@ const saveImage = (uid, placeId, image) => {
 }
 
 export const savePlace = (uid, place) => {
-  const { name, description, image } = place
+  const { image } = place
   const placeRef = db.collection('places').doc()
   const placeId = placeRef.id
   const upload = saveImage(uid, placeId, image)
 
-  return upload.then(snapshot => db.collection('places').add({
-    name,
-    description,
-    imageURL: snapshot.downloadURL,
-    createdBy: uid,
-    createAt: serverTimestamp(),
-    updateAt: serverTimestamp(),
-  }))
+  return upload.then((snapshot) => {
+    const extendedData = {
+      imageURL: snapshot.downloadURL,
+      createdBy: uid,
+    }
+
+    const extendedPlace = addExtendedDataToPlace(place, extendedData)
+
+    return db.collection('places').add(extendedPlace)
+  })
 }
 
 export const snapshotToObject = (snapshot) => {
@@ -65,4 +68,17 @@ export const getUser = (uid) => {
       console.log("No such document!")
     }
   })
+}
+
+export const saveUserPlace = (place) => {
+  const { image } = place
+
+  const extendedData = {
+    imageURL: image,
+    uid,
+  }
+
+  const extendedPlace = addExtendedDataToPlace(place, extendedData)
+
+  return db.collection('userPlaces').add(extendedPlace)
 }
