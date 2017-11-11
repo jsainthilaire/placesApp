@@ -17,3 +17,15 @@
     line-height: 55px;
     text-align: center;
 }
+
+.saveButton {
+    background-color: #8D6E63;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .6);
+    color: #ffffff;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 15px;
+    height: 30px;
+    outline: none;
+    width: 100px;
+}

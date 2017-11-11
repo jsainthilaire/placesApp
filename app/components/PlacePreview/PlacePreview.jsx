@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { placeImage, container } from './stytles.css'
+import { saveButton } from 'sharedStyles/styles.css'
 
 const PlacePreview = ({
   name,
@@ -13,7 +14,7 @@ const PlacePreview = ({
     <h2>{name}</h2>
     <p>{description}</p>
     <img src={imageURL} className={placeImage} />
-    {!isUserPlaces && <button onClick={saveToUser}>Save</button>}
+    {!isUserPlaces && <button className={saveButton} onClick={saveToUser}>Save</button>}
   </article>
 )
 
