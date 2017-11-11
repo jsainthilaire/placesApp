@@ -11,7 +11,7 @@ export const signedIn = (user) => {
   return {
     type: SIGN_IN,
     email: user.email,
-    name: user.displayName,
+    displayName: user.displayName,
     photoURL: user.photoURL,
     uid: user.uid,
   }
@@ -65,10 +65,10 @@ export const unauthUser = () => {
 
 const initialState = {
   status: 'ANONYMOUS',
-  email: null,
-  displayName: null,
-  photoURL: null,
-  uid: null,
+  email: '',
+  displayName: '',
+  photoURL: '',
+  uid: '',
   error: '',
   isFetching: true,
 }
@@ -79,12 +79,12 @@ export default function auth(state = initialState, action) {
       return {
         status: 'AWAITING_AUTH_RESPONSE',
         isFetching: true,
-      };
+      }
     case SIGN_IN:
       return {
         status: 'SIGNED_IN',
         email: action.email,
-        name: action.displayName,
+        displayName: action.displayName,
         photoURL: action.photoURL,
         uid: action.uid,
         isFetching: false,
@@ -92,19 +92,19 @@ export default function auth(state = initialState, action) {
     case SIGN_OUT:
       return {
         status: 'ANONYMOUS',
-        email: null,
-        displayName: null,
-        photoURL: null,
-        uid: null,
+        email: '',
+        displayName: '',
+        photoURL: '',
+        uid: '',
       }
     case SIGNING_ERROR:
       return {
         status: 'ANONYMOUS',
         error: action.error,
-        email: null,
-        displayName: null,
-        photoURL: null,
-        uid: null,
+        email: '',
+        displayName: '',
+        photoURL: '',
+        uid: '',
         isFetching: false,
       }
     case REMOVE_FETCHING_LOGIN:

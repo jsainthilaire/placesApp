@@ -1,0 +1,11 @@
+.containerProfilePreview {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.profileImage {
+    border-radius: 100%;
+    width: 200px;
+}

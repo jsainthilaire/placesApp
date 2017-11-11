@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { HomeContainer, LoginContainer, LogoutContainer, PlacesContainer, PrivateRouteContainer } from 'containers'
-import { FourOhFour, Header } from 'components'
+import { HomeContainer, LoginContainer, LogoutContainer, PlacesContainer, PrivateRouteContainer, ProfilePreviewContainer } from 'containers'
+import { FourOhFour, Header, ProfilePreview } from 'components'
 import { mainContainer, contentContainer, sidebarContainer } from './styles.css'
 
 const Main = ({ isAuthed }) => (
@@ -9,8 +9,7 @@ const Main = ({ isAuthed }) => (
     <Header isAuthed={isAuthed} />
     <div className={contentContainer}>
       <aside className={sidebarContainer}>
-        <h4>user info</h4>
-        <p>Here we will display user info</p>
+        <ProfilePreviewContainer />
       </aside>
       <main className={mainContainer}>
         <Switch>
