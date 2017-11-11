@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import { connect } from 'react-redux'
 import { PrivateRoute } from 'components'
 import { isAuthenticated } from 'helpers/auth'

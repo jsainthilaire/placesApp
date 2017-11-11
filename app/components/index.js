@@ -11,6 +11,4 @@ export AddPlace from './AddPlace/AddPlace'
 export PlacePreview from './PlacePreview/PlacePreview'
 export LoadingSpinner from './LoadingSpinner/LoadingSpinner'
 export PrivateRoute from './PrivateRoute/PrivateRoute'
-console.log('te')
 export ProfilePreview from './ProfilePreview/ProfilePreview'
-// console.log(ProfilePreview)

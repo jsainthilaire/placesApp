@@ -13,6 +13,12 @@ class MainContainer extends Component {
       if (user) {
         this.props.signedIn(user)
         this.props.fetchUser(user.uid)
+        const { pathname } = this.props.location
+        const { replace } = this.props.history
+
+        if (pathname === '/login') {
+          replace('/places')
+        }
       } else {
         this.props.removeFetchingLogin()
         this.props.signOut()
@@ -51,6 +57,12 @@ MainContainer.propTypes = {
   signOut: PropTypes.func.isRequired,
   fetchUser: PropTypes.func.isRequired,
   removeFetchingLogin: PropTypes.func.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+  history: PropTypes.shape({
+    replace: PropTypes.func.isRequired,
+  }).isRequired,
 }
 
 export default connect(null, mapDispatchToProps)(MainContainer)
