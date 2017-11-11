@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddPlace render correctly 1`] = `
+<div
+  className="addPlace"
+>
+  <h2
+    className="title"
+  >
+    Save new Place
+  </h2>
+  <label
+    className="label"
+  >
+    Name
+    <input
+      className="nameBox"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </label>
+  <label
+    className="label"
+  >
+    Description
+    <textarea
+      className="descriptionBox"
+      cols="50"
+      onChange={[Function]}
+      rows="4"
+      value=""
+    />
+  </label>
+  <div
+    className="imageContainer"
+  >
+    <input
+      onChange={[Function]}
+      type="file"
+    />
+    <img
+      alt=""
+      className="imageBox"
+      src=""
+    />
+  </div>
+  <button
+    className="saveButton"
+    onClick={[Function]}
+  >
+    Save Place
+  </button>
+</div>
+`;
+
+exports[`AddPlace should call updateName after changing the name input 1`] = `
+<div
+  className="addPlace"
+>
+  <h2
+    className="title"
+  >
+    Save new Place
+  </h2>
+  <label
+    className="label"
+  >
+    Name
+    <input
+      className="nameBox"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </label>
+  <label
+    className="label"
+  >
+    Description
+    <textarea
+      className="descriptionBox"
+      cols="50"
+      onChange={[Function]}
+      rows="4"
+      value=""
+    />
+  </label>
+  <div
+    className="imageContainer"
+  >
+    <input
+      onChange={[Function]}
+      type="file"
+    />
+    <img
+      alt=""
+      className="imageBox"
+      src=""
+    />
+  </div>
+  <button
+    className="saveButton"
+    onClick={[Function]}
+  >
+    Save Place
+  </button>
+</div>
+`;
