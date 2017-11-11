@@ -42,6 +42,11 @@ export const attemptingLogin = () => {
   }
 }
 
+/**
+ * Authenticate the user
+ * @param {string} provider - provider to login against
+ * @returns {function(*)}
+ */
 export const authUser = (provider) => {
   return (dispatch) => {
     dispatch(attemptingLogin())
@@ -56,6 +61,10 @@ export const authUser = (provider) => {
   }
 }
 
+/**
+ * Logout the user
+ * @returns {function(*)}
+ */
 export const unauthUser = () => {
   return (dispatch) => {
     logout()
