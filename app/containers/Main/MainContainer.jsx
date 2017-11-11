@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Main } from 'components'
-import { signedIn, signOut, attemptingLogin } from 'redux/modules/auth'
+import { signedIn, signOut, attemptingLogin, removeFetchingLogin } from 'redux/modules/auth'
 import { fetchUser } from 'redux/modules/users'
 import { auth as firebaseAuth } from 'config/firebase'
-import { isAuthed } from 'helpers/auth'
 
 class MainContainer extends Component {
   componentDidMount() {
@@ -15,6 +14,7 @@ class MainContainer extends Component {
         this.props.signedIn(user)
         this.props.fetchUser(user.uid)
       } else {
+        this.props.removeFetchingLogin()
         this.props.signOut()
       }
     })
@@ -22,14 +22,10 @@ class MainContainer extends Component {
 
   render() {
     return (
-      <Main isAuthed={this.props.isAuthed} />
+      <Main />
     )
   }
 }
-
-const mapStateToProps = ({ auth }) => ({
-  isAuthed: isAuthed(auth.status),
-})
 
 const mapDispatchToProps = dispatch => ({
   signedIn(user) {
@@ -44,14 +40,17 @@ const mapDispatchToProps = dispatch => ({
   fetchUser(uid) {
     dispatch(fetchUser(uid))
   },
+  removeFetchingLogin() {
+    dispatch(removeFetchingLogin())
+  },
 })
 
 MainContainer.propTypes = {
-  isAuthed: PropTypes.bool.isRequired,
   signedIn: PropTypes.func.isRequired,
   attemptingLogin: PropTypes.func.isRequired,
   signOut: PropTypes.func.isRequired,
   fetchUser: PropTypes.func.isRequired,
+  removeFetchingLogin: PropTypes.func.isRequired,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainContainer)
+export default connect(null, mapDispatchToProps)(MainContainer)

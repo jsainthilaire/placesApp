@@ -8,7 +8,7 @@ export const authenticate = (provider = 'google') => {
   return auth.signInWithPopup(providerInstance)
 }
 
-export const isAuthed = (status = '') => status === signedInStatus
+export const isAuthenticated = (status = '', uid) => status === signedInStatus && !!uid
 
 export const logout = () => {
   auth.signOut()

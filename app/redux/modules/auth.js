@@ -5,6 +5,7 @@ const SIGN_IN = 'SIGN_IN'
 const SIGN_OUT = 'SIGN_OUT'
 const SIGNING_ERROR = 'SIGNING_ERROR'
 const ATTEMPTING_LOGIN = 'ATTEMPTING_LOGIN'
+const REMOVE_FETCHING_LOGIN = 'REMOVE_FETCHING_LOGIN'
 
 export const signedIn = (user) => {
   return {
@@ -26,6 +27,12 @@ const signingError = (error) => {
 export const signOut = () => {
   return {
     type: SIGN_OUT,
+  }
+}
+
+export const removeFetchingLogin = () => {
+  return {
+    type: REMOVE_FETCHING_LOGIN,
   }
 }
 
@@ -63,6 +70,7 @@ const initialState = {
   photoURL: null,
   uid: null,
   error: '',
+  isFetching: true,
 }
 
 export default function auth(state = initialState, action) {
@@ -70,6 +78,7 @@ export default function auth(state = initialState, action) {
     case ATTEMPTING_LOGIN:
       return {
         status: 'AWAITING_AUTH_RESPONSE',
+        isFetching: true,
       };
     case SIGN_IN:
       return {
@@ -78,6 +87,7 @@ export default function auth(state = initialState, action) {
         name: action.displayName,
         photoURL: action.photoURL,
         uid: action.uid,
+        isFetching: false,
       }
     case SIGN_OUT:
       return {
@@ -95,6 +105,12 @@ export default function auth(state = initialState, action) {
         displayName: null,
         photoURL: null,
         uid: null,
+        isFetching: false,
+      }
+    case REMOVE_FETCHING_LOGIN:
+      return {
+        ...state,
+        isFetching: false,
       }
     default:
       return state
