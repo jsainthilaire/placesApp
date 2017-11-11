@@ -12,6 +12,11 @@ class AddPlaceContainer extends Component {
       imagePreviewURL: '',
     }
   }
+
+  /**
+   *
+   * @returns {undefined} undefined
+   */
   submitPlace = () => {
     const {
       description,
@@ -23,10 +28,20 @@ class AddPlaceContainer extends Component {
     this.props.saveNewPlace({ description, name, image })
   }
 
+  /**
+   * Handles the newPlace update based on the field changed
+   * @param {string} fieldName - name of the field on newPlace reducer
+   * @returns {Function} callback - handles submit on the field change
+   */
   updateNewPlace = fieldName => (e) => {
     this.props.updateNewPlace(fieldName, e.target.value)
   }
 
+  /**
+   * Handles the event for the image change on the new place form
+   * @param {SyntheticEvent} e - file event
+   * @returns {undefined} undefined
+   */
   handleImageChange = (e) => {
     const image = e.target.files[0]
     const reader = new FileReader()

@@ -7,7 +7,7 @@ const PlacePreview = ({
   description,
   imageURL,
   saveToUser,
-  isUserPlaces
+  isUserPlaces,
 }) => (
   <article className={container}>
     <h2>{name}</h2>
