@@ -16,6 +16,11 @@ class PlacesContainer extends Component {
     }
   }
 
+  /**
+   * Saves an specific place for the current logged user
+   * @param {string} placeId - place to save for the current logged user
+   * @return {undefined} undefined
+   */
   saveToUser = placeId => () => {
     this.props.saveUserPlace(placeId)
   }
