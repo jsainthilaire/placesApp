@@ -1,3 +1,4 @@
+import omit from 'lodash/omit'
 import { serverTimestamp } from 'config/firebase'
 
 export const formatPlace = (place) => {
@@ -11,7 +12,9 @@ export const formatPlace = (place) => {
   }
 }
 
-export const addExtendedDataToPlace = (place, exndedData) => ({
+export const addExtendedDataToPlace = (place, extendedData) => ({
   ...formatPlace(place),
-  ...exndedData,
+  ...extendedData,
 })
+
+export const removeUpdateMetadata = data => omit(data, ['createAt', 'updatedAt'])

@@ -91,20 +91,13 @@ export default function auth(state = initialState, action) {
       }
     case SIGN_OUT:
       return {
-        status: 'ANONYMOUS',
-        email: '',
-        displayName: '',
-        photoURL: '',
-        uid: '',
+        ...initialState,
+        isFetching: false,
       }
     case SIGNING_ERROR:
       return {
-        status: 'ANONYMOUS',
+        ...initialState,
         error: action.error,
-        email: '',
-        displayName: '',
-        photoURL: '',
-        uid: '',
         isFetching: false,
       }
     case REMOVE_FETCHING_LOGIN:

@@ -16,7 +16,7 @@ class LoginAwareContainer extends Component {
 
     return isAuthed
       ? this.props.render(isAuthed)
-      : <Redirect to={{pathname: '/login', state: { from: location }}} />
+      : <Redirect to={{ pathname: '/login', state: { from: location } }} />
 
   }
 }

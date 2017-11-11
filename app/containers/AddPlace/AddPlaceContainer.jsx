@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { AddPlace } from 'components'
-import { updateNewPlace, saveNewPlace } from 'redux/modules/places'
+import { updateNewPlace, saveNewPlace } from 'redux/modules/newPlace'
 
 class AddPlaceContainer extends Component {
   constructor(props) {
@@ -63,9 +63,9 @@ AddPlaceContainer.propTypes = {
   saveNewPlace: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = ({ places }) => ({
-  description: places.newPlace.description,
-  name: places.newPlace.name,
+const mapStateToProps = ({ newPlace }) => ({
+  description: newPlace.description,
+  name: newPlace.name,
 })
 
 const mapDispatchToProps = dispatch => ({

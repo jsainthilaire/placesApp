@@ -1,5 +1,5 @@
 import { db, storage } from 'config/firebase'
-import { addExtendedDataToPlace } from './format'
+import { addExtendedDataToPlace, removeUpdateMetadata } from './format'
 
 export const saveUser = (user) => {
   const {
@@ -59,6 +59,11 @@ export const getPlaces = () => {
   return db.collection('places').get().then(querySnapshot => snapshotToObject(querySnapshot))
 }
 
+export const getUserPlaces = (uid) => {
+  console.log(uid)
+  return db.collection('userPlaces').where('uid', '==', uid).get().then(querySnapshot => snapshotToObject(querySnapshot))
+}
+
 export const getUser = (uid) => {
   console.log(uid)
   return db.collection('users').doc(uid).get().then((doc) => {
@@ -70,15 +75,10 @@ export const getUser = (uid) => {
   })
 }
 
-export const saveUserPlace = (place) => {
-  const { image } = place
+export const saveUserPlaceToVisit = (place, uid) => {
+  const { imageURL } = place
 
-  const extendedData = {
-    imageURL: image,
-    uid,
-  }
-
-  const extendedPlace = addExtendedDataToPlace(place, extendedData)
-
-  return db.collection('userPlaces').add(extendedPlace)
+  const placeWithoutMeta = removeUpdateMetadata(place)
+  const placeExtended = addExtendedDataToPlace(placeWithoutMeta, { uid, imageURL })
+  return db.collection('userPlaces').add(placeExtended).then(() => placeExtended)
 }

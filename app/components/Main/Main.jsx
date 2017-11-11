@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { HomeContainer, LoginContainer, LogoutContainer, PlacesContainer, PrivateRouteContainer, ProfilePreviewContainer } from 'containers'
+import { HomeContainer, LoginContainer, LogoutContainer, PlacesContainer, MyPlacesContainer, ProfilePreviewContainer } from 'containers'
 import { FourOhFour, Header, PrivateRoute } from 'components'
 import { mainContainer, contentContainer, sidebarContainer } from './styles.css'
 
@@ -17,6 +17,7 @@ const Main = ({ isAuthed }) => (
           <Route exact path='/login' component={LoginContainer} />
           <Route exact path='/logout' component={LogoutContainer} />
           <PrivateRoute exact path='/places' component={PlacesContainer} />
+          <PrivateRoute exact path='/myplaces' component={(props) => <PlacesContainer {...props} isUserPlaces />} />
           <Route component={FourOhFour} />
         </Switch>
       </main>
