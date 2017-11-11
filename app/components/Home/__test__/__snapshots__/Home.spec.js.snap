@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render correctly 1`] = `
+<section
+  className="centeredContainer"
+>
+  <h1
+    className="title"
+  >
+    Places
+  </h1>
+  <p
+    className="description"
+  >
+    Save your places to visit and rock the world!
+  </p>
+</section>
+`;
