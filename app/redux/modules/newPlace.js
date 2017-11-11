@@ -12,7 +12,7 @@ export const updateNewPlace = (fieldName = 'name', fieldValue) => {
   }
 }
 
-const resetNewPlace = () => ({
+export const resetNewPlace = () => ({
   type: RESET_NEW_PLACE,
 })
 
@@ -27,7 +27,7 @@ export const saveNewPlace = (place) => {
   }
 }
 
-const initialState = {
+export const initialState = {
   name: '',
   description: '',
 }
