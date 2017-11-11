@@ -4,7 +4,7 @@ import { saveUser } from 'helpers/firebase'
 const SIGN_IN = 'SIGN_IN'
 const SIGN_OUT = 'SIGN_OUT'
 const SIGNING_ERROR = 'SIGNING_ERROR'
-const ATTEMPTING_LOGIN = 'ATTEMPTING_LOGIN'
+export const ATTEMPTING_LOGIN = 'ATTEMPTING_LOGIN'
 const REMOVE_FETCHING_LOGIN = 'REMOVE_FETCHING_LOGIN'
 
 export const signedIn = (user) => {
@@ -63,7 +63,7 @@ export const unauthUser = () => {
   }
 }
 
-const initialState = {
+export const initialState = {
   status: 'ANONYMOUS',
   email: '',
   displayName: '',
