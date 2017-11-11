@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import map from 'lodash/map'
 import { AddPlaceContainer } from 'containers'
 import { PlacePreview } from 'components'
@@ -22,5 +23,15 @@ const Places = ({ places, onSaveToUser, isUserPlaces }) => (
     </section>
   </div>
 )
+
+Places.propTypes = {
+  isUserPlaces: PropTypes.bool.isRequired,
+  onSaveToUser: PropTypes.func.isRequired,
+  places: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    photoURL: PropTypes.string.isRequired,
+  }).isRequired,
+}
 
 export default Places

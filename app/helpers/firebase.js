@@ -55,25 +55,26 @@ export const snapshotToObject = (snapshot) => {
   return returnObj
 }
 
-export const getPlaces = () => {
-  return db.collection('places').get().then(querySnapshot => snapshotToObject(querySnapshot))
-}
+export const getPlaces = () => db.collection('places')
+  .get()
+  .then(querySnapshot => snapshotToObject(querySnapshot))
 
-export const getUserPlaces = (uid) => {
-  console.log(uid)
-  return db.collection('userPlaces').where('uid', '==', uid).get().then(querySnapshot => snapshotToObject(querySnapshot))
-}
 
-export const getUser = (uid) => {
-  console.log(uid)
-  return db.collection('users').doc(uid).get().then((doc) => {
-    if (doc.exists) {
-      return doc.data()
-    } else {
-      console.log("No such document!")
-    }
-  })
-}
+export const getUserPlaces = uid => db.collection('userPlaces')
+  .where('uid', '==', uid)
+  .get()
+  .then(querySnapshot => snapshotToObject(querySnapshot))
+
+
+export const getUser = uid => db.collection('users').doc(uid).get().then((doc) => {
+  if (doc.exists) {
+    return doc.data()
+  }
+
+  console.log('No such document')
+  return {}
+})
+
 
 export const saveUserPlaceToVisit = (place, uid) => {
   const { imageURL } = place

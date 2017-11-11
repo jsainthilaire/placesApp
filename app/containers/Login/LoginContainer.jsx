@@ -18,12 +18,13 @@ class LoginContainer extends Component {
     return isAuthed
       ? <Redirect to='/places' />
       : <Login onAuth={this.handleAuth} />
-
   }
 }
 
 LoginContainer.propTypes = {
   authUser: PropTypes.func.isRequired,
+  status: PropTypes.string.isRequired,
+  uid: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = ({ auth }) => ({

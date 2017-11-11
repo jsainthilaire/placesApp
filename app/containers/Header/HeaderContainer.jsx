@@ -1,25 +1,28 @@
 import React, { Component } from 'react'
-
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { PrivateRoute } from 'components'
+import { Header } from 'components'
 import { isAuthenticated } from 'helpers/auth'
 
-class PrivateRouteContainer extends Component {
+class HeaderContainer extends Component {
   render() {
     const { status, uid } = this.props
     const isAuthed = isAuthenticated(status, uid)
-    const isFetchingAuth = isAuthenticated(status, uid)
 
     return (
-      <PrivateRoute isAuthed={isAuthed} isFetchingAuth={isFetchingAuth} {...this.props} />
+      <Header isAuthed={isAuthed} />
     )
   }
+}
+
+HeaderContainer.propTypes = {
+  status: PropTypes.string.isRequired,
+  uid: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = ({ auth }) => ({
   status: auth.status,
   uid: auth.uid,
-  isFetchingAuth: auth.isFetching,
 })
 
-export default connect(mapStateToProps)(PrivateRouteContainer)
+export default connect(mapStateToProps)(HeaderContainer)

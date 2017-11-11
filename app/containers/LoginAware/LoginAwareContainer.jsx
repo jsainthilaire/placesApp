@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -7,7 +7,9 @@ import { isAuthenticated } from 'helpers/auth'
 
 class LoginAwareContainer extends Component {
   render() {
-    const { status, uid, isFetchingAuth, location } = this.props
+    const {
+      status, uid, isFetchingAuth, location,
+    } = this.props
     const isAuthed = isAuthenticated(status, uid)
 
     if (isFetchingAuth) {
@@ -17,7 +19,6 @@ class LoginAwareContainer extends Component {
     return isAuthed
       ? this.props.render(isAuthed)
       : <Redirect to={{ pathname: '/login', state: { from: location } }} />
-
   }
 }
 
