@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import get from 'lodash/get'
 import { google, facebook } from './styles.css'
 
 
@@ -15,13 +16,17 @@ const providers = {
 }
 
 const LoginButton = ({ provider, onAuth }) => (
-  <button className={providers[provider].className} onClick={onAuth(provider)}>
-    {providers[provider].text}
+  <button className={get(providers, `${provider}.className`)} onClick={onAuth(provider)}>
+    {get(providers, `${provider}.text`)}
   </button>
 )
 
+LoginButton.defaulProps = {
+  provider: providers.google,
+}
+
 LoginButton.propTypes = {
-  provider: PropTypes.string.isRequired,
+  provider: PropTypes.string,
   onAuth: PropTypes.func.isRequired,
 }
 

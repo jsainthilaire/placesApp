@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should call onAuth if the user clicks on it 1`] = `<button />`;
+
+exports[`LoginButton should render correctly 1`] = `<button />`;

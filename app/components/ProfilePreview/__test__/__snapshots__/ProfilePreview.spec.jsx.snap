@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddPlace render correctly 1`] = `
+<div
+  className="containerProfilePreview"
+>
+  <h4 />
+  <img
+    alt=""
+    className="profileImage"
+    src=""
+  />
+  <h5
+    className="profileEmail"
+  />
+</div>
+`;

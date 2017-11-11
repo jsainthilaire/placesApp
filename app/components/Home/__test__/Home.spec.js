@@ -7,3 +7,4 @@ test('Home should render correctly', () => {
   const wrapper = shallow(<Home />)
   expect(toJson(wrapper)).toMatchSnapshot()
 })
+

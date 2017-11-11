@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlacePreview should not render save button when the page is my places 1`] = `
+<article
+  className="container"
+>
+  <h2 />
+  <p />
+  <img
+    className="placeImage"
+    src=""
+  />
+</article>
+`;
+
+exports[`PlacePreview should render correctly 1`] = `
+<article
+  className="container"
+>
+  <h2 />
+  <p />
+  <img
+    className="placeImage"
+    src=""
+  />
+  <button
+    onClick={[Function]}
+  >
+    Save
+  </button>
+</article>
+`;
+
+exports[`PlacePreview should render save button when the page is my places 1`] = `
+<article
+  className="container"
+>
+  <h2 />
+  <p />
+  <img
+    className="placeImage"
+    src=""
+  />
+  <button
+    onClick={[Function]}
+  >
+    Save
+  </button>
+</article>
+`;
