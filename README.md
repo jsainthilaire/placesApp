@@ -31,3 +31,7 @@ It will start running at http://localhost:8080
 - Add listener from firebase cloud function in order to create a metadata object to be consume and use to optimize the queries.
 - Add Share functionality.
 - Add Facebook login.
+
+## License
+
+[MIT](https://raw.githubusercontent.com/jsainthilaire/placesApp/master/LICENSE)
